@@ -1,6 +1,9 @@
 <?php
 include "db.php";
 $eid = $_GET['id'];
+if (!isset($_GET['id'])) {
+    header('Location:display-employee.php');
+}
 $select = mysqli_query($con, "SELECT * FROM tbl_employee WHERE emp_id = '$eid'");
 $row = mysqli_fetch_array($select);
 if ($_POST) {
